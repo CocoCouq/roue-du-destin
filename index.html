@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La roue du destin</title>
+<body>
+
+  <h1>🎡 La roue du destin</h1>
+
+  <div id="question-un">
+    Cliques <button onclick="cliqueUn()">ici</button> pour savoir <u>ce qu'il</u> manque à ta vie
+  </div>
+
+  <div id="reponse-un" class="hide">
+    Corentin est celui qui te fera aimer plus fort
+    👩🏼‍❤️‍👨🏻
+  </div>
+
+  <div id="question-deux">
+    Cliques <button onclick="cliqueDeux()">ici</button> pour savoir <u>qui</u> il manque dans ta vie
+  </div>
+
+  <div id="reponse-deux" class="hide">
+    Corentin est celui qui t'aimera le plus fort
+    🫂
+  </div>
+
+  <div id="question-trois">
+    Cliques <button onclick="cliqueTrois()">ici</button> pour découvrir dans <u>combien de temps</u> tu seras heureuse 
+  </div>
+
+  <div id="reponse-trois" class="hide">
+    Tu l'es depuis dimanche ! 
+    ❤️
+  </div>
+  
+
+  <hr>
+  <div>
+    <label for="prenom">
+      Quel est ton prénom ?
+    </label>
+    <br>
+    <input id="prenom" type="text">
+    <button onclick="cliqueSubmit()">Ok</button>
+  </div>
+
+  <div id="non-ok" class="hide">
+    Je ne suis pas certain que ça soit ton prénom es tu sûr ?
+    <br>
+    Si tu es sûr de toi, dégages, c'est pas pour toi ici !! 
+  </div>
+
+  <div id="ok" class="hide">
+    Nous avons trouvé un prénom compatible à 100% avec "Marie". 
+
+    <h2>
+      ➡️ Corentin
+    </h2>
+
+    <h3>
+      La roue du destin te souhaite beaucoup de bonheur, Marie. Tu le mérites.
+      <br> <br>
+      Quelqu'un t'aime très fort et ce n'est pas un secret 🫶🏼
+    </h3>
+  </div>
+</body>
+
+<script lang="js">
+  function cliqueUn() {
+    document.getElementById('question-un').classList.add('hide')
+    document.getElementById('reponse-un').classList.remove('hide')
+  }
+  function cliqueDeux() {
+    document.getElementById('question-deux').classList.add('hide')
+    document.getElementById('reponse-deux').classList.remove('hide')
+  }
+  function cliqueTrois() {
+    document.getElementById('question-trois').classList.add('hide')
+    document.getElementById('reponse-trois').classList.remove('hide')
+  }
+  function cliqueSubmit() {
+    const inputValue = document.getElementById('prenom').value
+    console.log('clique submit', inputValue);
+
+    if (inputValue.toLowerCase().trim() !== 'marie') {
+      document.getElementById('ok').classList.add('hide')
+      document.getElementById('non-ok').classList.remove('hide')
+    }
+    else {
+      document.getElementById('ok').classList.remove('hide')
+      document.getElementById('non-ok').classList.add('hide')
+    }
+  }
+</script>
+
+<style lang="css">
+  body {
+    padding: 16px;
+  }
+
+  div {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  hr {
+    margin: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  input {
+    margin-top: 4px;
+  }
+
+  #reponse-un, #reponse-deux, #reponse-trois {
+    background-color: aqua;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  #question-un, #question-deux, #question-trois {
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  #non-ok {
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  #ok {
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .hide {
+    display: none;
+  }
+</style>
+</html>
