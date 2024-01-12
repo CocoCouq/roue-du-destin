@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La roue du destin</title>
-<body>
 
+<body>
   <h1>🎡 La roue du destin</h1>
 
   <div id="question-un">
-    Cliques <button onclick="cliqueUn()">ici</button> pour savoir <u>ce qu'il</u> manque à ta vie
+    Cliques <button onclick="cliqueUn()">ici</button> pour savoir <u>ce qui améliore</u> ta vie
   </div>
 
   <div id="reponse-un" class="hide">
@@ -19,7 +20,7 @@
   </div>
 
   <div id="question-deux">
-    Cliques <button onclick="cliqueDeux()">ici</button> pour savoir <u>qui</u> il manque dans ta vie
+    Cliques <button onclick="cliqueDeux()">ici</button> pour savoir <u>qui compte</u> dans ta vie
   </div>
 
   <div id="reponse-deux" class="hide">
@@ -28,20 +29,21 @@
   </div>
 
   <div id="question-trois">
-    Cliques <button onclick="cliqueTrois()">ici</button> pour découvrir dans <u>combien de temps</u> tu seras heureuse 
+    Cliques <button onclick="cliqueTrois()">ici</button> pour découvrir dans <u>combien de temps</u> tu seras heureuse
   </div>
 
   <div id="reponse-trois" class="hide">
-    Tu l'es depuis dimanche ! 
+    Aussi longtemps que tu seras en compagnie d'un Corentin
     ❤️
   </div>
-  
+
 
   <hr>
-  <div>
-    <label for="prenom">
+
+  <div class="question-prenom">
+    <h3>
       Quel est ton prénom ?
-    </label>
+    </h3>
     <br>
     <input id="prenom" type="text">
     <button onclick="cliqueSubmit()">Ok</button>
@@ -50,25 +52,59 @@
   <div id="non-ok" class="hide">
     Je ne suis pas certain que ça soit ton prénom es tu sûr ?
     <br>
-    Si tu es sûr de toi, dégages, c'est pas pour toi ici !! 
+    Si tu es sûr de toi, dégages, c'est pas pour toi ici !!
   </div>
 
   <div id="ok" class="hide">
-    Nous avons trouvé un prénom compatible à 100% avec "Marie". 
-
-    <h2>
-      ➡️ Corentin
-    </h2>
+    Nous avons trouvé un prénom compatible à 100% avec "Marie".
 
     <h3>
+      ➡️ Corentin
+    </h3>
+
+    <h4>
       La roue du destin te souhaite beaucoup de bonheur, Marie. Tu le mérites.
       <br> <br>
       Quelqu'un t'aime très fort et ce n'est pas un secret 🫶🏼
-    </h3>
+    </h4>
+  </div>
+
+  <hr>
+
+  <h3 class="text-center">Cliques sur les cases et découvre le prénom de l'amour de ta vie</h3>
+
+  <div class="devoile-prenom">
+    <div onclick="cliqueLetter(1)" id="devoile-prenom__letter--1" class="devoile-prenom__letter">
+      C
+    </div>
+    <div onclick="cliqueLetter(2)" id="devoile-prenom__letter--2" class="devoile-prenom__letter">
+      O
+    </div>
+    <div onclick="cliqueLetter(3)" id="devoile-prenom__letter--3" class="devoile-prenom__letter">
+      R
+    </div>
+    <div onclick="cliqueLetter(4)" id="devoile-prenom__letter--4" class="devoile-prenom__letter">
+      E
+    </div>
+    <div onclick="cliqueLetter(5)" id="devoile-prenom__letter--5" class="devoile-prenom__letter">
+      N
+    </div>
+    <div onclick="cliqueLetter(6)" id="devoile-prenom__letter--6" class="devoile-prenom__letter">
+      T
+    </div>
+    <div onclick="cliqueLetter(7)" id="devoile-prenom__letter--7" class="devoile-prenom__letter">
+      I
+    </div>
+    <div onclick="cliqueLetter(8)" id="devoile-prenom__letter--8" class="devoile-prenom__letter">
+      N
+    </div>
   </div>
 </body>
 
 <script lang="js">
+  function cliqueLetter(index) {
+    document.getElementById(`devoile-prenom__letter--${index}`).classList.add('devoile-prenom__letter--devoilee')
+  }
   function cliqueUn() {
     document.getElementById('question-un').classList.add('hide')
     document.getElementById('reponse-un').classList.remove('hide')
@@ -97,6 +133,13 @@
 </script>
 
 <style lang="css">
+  h1,
+  h2,
+  h3 {
+    color: goldenrod;
+    max-width: 23.25rem;
+  }
+
   body {
     padding: 16px;
   }
@@ -110,21 +153,36 @@
     margin: 8px;
     margin-top: 16px;
     margin-bottom: 16px;
+    height: 1.5px;
+    background-color: goldenrod;
+    border: aqua 0.5px groove;
+    border-radius: 8px;
+    max-width: 23.25rem;
   }
 
   input {
     margin-top: 4px;
   }
 
-  #reponse-un, #reponse-deux, #reponse-trois {
+  #reponse-un,
+  #reponse-deux,
+  #reponse-trois {
     background-color: aqua;
     border-radius: 8px;
     padding: 8px;
+    max-width: 25rem;
+    font-size: 15px;
+    max-width: 23.25rem;
   }
 
-  #question-un, #question-deux, #question-trois {
+  #question-un,
+  #question-deux,
+  #question-trois {
     border-radius: 8px;
     padding: 8px;
+    max-width: 23.25rem;
+    font-size: 12px;
+    padding-left: 1rem;
   }
 
   #non-ok {
@@ -135,14 +193,60 @@
   }
 
   #ok {
-    background-color: green;
-    color: white;
+    background-color: goldenrod;
+    color: white !important;
     border-radius: 8px;
     padding: 8px;
+    max-width: 23.25rem;
+  }
+
+  #ok>h3,
+  #ok>h4 {
+    color: white !important;
   }
 
   .hide {
     display: none;
   }
+
+  .devoile-prenom {
+    background-color: aqua;
+    max-width: 23.25rem;
+    display: flex;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 8px;
+  }
+
+
+  .devoile-prenom__letter {
+    background-color: aqua;
+    font-size: 2.5rem;
+    width: 2.5rem;
+    text-align: center;
+    border: 1px solid goldenrod;
+    border-radius: 4px;
+    color: aqua;
+    margin-left: 0.25rem;
+    cursor: pointer;
+  }
+
+  .devoile-prenom__letter--devoilee {
+    background-color: white !important;
+  }
+
+  .question-prenom>h3 {
+    margin: 0;
+  }
+
+  .question-prenom {
+    max-width: 23.25rem;
+    text-align: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
 </style>
+
 </html>
